@@ -27,3 +27,11 @@
         
 
 import Foundation
+
+enum NetworkError: Error {
+    case requestFailed, invalidURL
+}
+
+struct StatusCode {
+    static let ok = 200
+}

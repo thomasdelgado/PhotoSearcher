@@ -28,8 +28,17 @@
 
 import Foundation
 
-class Urls: Decodable {
-    var regular: String?
+struct User: Decodable {
+    var id: String
+    var name: String?
+    var username: String
+    var total_photos: Int?
+    var total_likes: Int?
+    var profileImage: UserImage?
+}
+
+struct UserImage: Decodable {
     var small: String?
-    var thumb: String?
+    var medium: String?
+    var large: String?
 }

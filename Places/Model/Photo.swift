@@ -28,7 +28,7 @@
 
 import Foundation
 
-class Photo: Decodable, Identifiable {
+struct Photo: Decodable, Identifiable {
     var id: String?
     var likes: Int
     var urls: Urls?
@@ -37,14 +37,6 @@ class Photo: Decodable, Identifiable {
 
     var smallPhotoURL: URL? { URL(string: self.urls?.small ?? "") }
     var photoURL: URL? { URL(string: self.urls?.regular ?? "") }
-
-    required init() {
-        id = "l9-H4-XGVIg"
-        description = "Work from home"
-        urls = Urls()
-        user = User()
-        likes = Int.zero
-    }
 }
 
 class Urls: Decodable {

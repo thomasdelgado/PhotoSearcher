@@ -34,6 +34,8 @@ struct Photo: Decodable, Identifiable {
     var urls: Urls?
     var description: String?
     var user: User?
+    var width: Int?
+    var height: Int?
 
     var smallPhotoURL: URL? { URL(string: self.urls?.small ?? "") }
     var photoURL: URL? { URL(string: self.urls?.regular ?? "") }

@@ -32,6 +32,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A364459D266FFB2F00AE70D2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A364459E266FFB3600AE70D2 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		A364459F266FFB3B00AE70D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A3D229FB266FEEC5002DF1CB = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +72,9 @@
 		A3D22A06266FEEC5002DF1CB /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				A364459D266FFB2F00AE70D2 /* Service */,
+				A364459E266FFB3600AE70D2 /* Store */,
+				A364459F266FFB3B00AE70D2 /* View */,
 				A3D22A07266FEEC5002DF1CB /* PlacesApp.swift */,
 				A3D22A09266FEEC5002DF1CB /* ContentView.swift */,
 				A3D22A0B266FEEC6002DF1CB /* Assets.xcassets */,

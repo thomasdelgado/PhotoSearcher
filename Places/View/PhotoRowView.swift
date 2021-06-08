@@ -24,18 +24,51 @@
 //    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
-        
+
 
 import SwiftUI
 
 struct PhotoRowView: View {
+    var photo: Photo
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .bottomLeading) {
+            AsyncImage(url: photo.smallPhotoURL, content: { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            }, placeholder: {
+                randomPlaceholderColor()
+                    .opacity(0.1)
+            })
+            .frame(minHeight: photoHeight)
+            .overlay(ImageGradient())
+            Text(photo.user?.name ?? "")
+                .font(.headline)
+                .foregroundColor(.white)
+                .shadow(radius: 10)
+                .padding()
+        }
+        .edgesIgnoringSafeArea(.all)
     }
+
+    var photoHeight: CGFloat {
+        guard let width = photo.width,
+              let height = photo.height else { return 0 }
+        return CGFloat(height) * UIScreen.main.bounds.width / CGFloat(width)
+    }
+
+    func randomPlaceholderColor() -> Color {
+        placeholderColors.randomElement()!
+    }
+
+    let placeholderColors: [Color] = [
+        .red, .blue, .orange, .mint, .purple, .yellow, .green, .pink
+    ]
 }
 
 struct PhotoRowView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoRowView()
+        PhotoRowView(photo: Photo.mock)
     }
 }

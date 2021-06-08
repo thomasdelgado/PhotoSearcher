@@ -17,6 +17,7 @@
 		A37A09DB267021B0004047B7 /* ImageGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A09DA267021B0004047B7 /* ImageGradient.swift */; };
 		A37A09DD26702327004047B7 /* PhotoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A09DC26702327004047B7 /* PhotoRowView.swift */; };
 		A37A09DF2670253B004047B7 /* Photo+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A09DE2670253B004047B7 /* Photo+Mock.swift */; };
+		A37A09E226703761004047B7 /* DispatchQueue+AsyncWait.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A09E126703761004047B7 /* DispatchQueue+AsyncWait.swift */; };
 		A3D22A08266FEEC5002DF1CB /* PlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D22A07266FEEC5002DF1CB /* PlacesApp.swift */; };
 		A3D22A0C266FEEC6002DF1CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D22A0B266FEEC6002DF1CB /* Assets.xcassets */; };
 		A3D22A0F266FEEC6002DF1CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D22A0E266FEEC6002DF1CB /* Preview Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		A37A09DA267021B0004047B7 /* ImageGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGradient.swift; sourceTree = "<group>"; };
 		A37A09DC26702327004047B7 /* PhotoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRowView.swift; sourceTree = "<group>"; };
 		A37A09DE2670253B004047B7 /* Photo+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Mock.swift"; sourceTree = "<group>"; };
+		A37A09E126703761004047B7 /* DispatchQueue+AsyncWait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+AsyncWait.swift"; sourceTree = "<group>"; };
 		A3D22A04266FEEC5002DF1CB /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D22A07266FEEC5002DF1CB /* PlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesApp.swift; sourceTree = "<group>"; };
 		A3D22A0B266FEEC6002DF1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A37A09E026703747004047B7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A37A09E126703761004047B7 /* DispatchQueue+AsyncWait.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A3D229FB266FEEC5002DF1CB = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 		A3D22A06266FEEC5002DF1CB /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				A37A09E026703747004047B7 /* Extensions */,
 				A3148E32267019310059BAF6 /* Network */,
 				A364459D266FFB2F00AE70D2 /* Service */,
 				A3080A9C26700C840066A971 /* Model */,
@@ -215,6 +226,7 @@
 				A3080AA026700CF20066A971 /* User.swift in Sources */,
 				A37A09DD26702327004047B7 /* PhotoRowView.swift in Sources */,
 				A37A09DB267021B0004047B7 /* ImageGradient.swift in Sources */,
+				A37A09E226703761004047B7 /* DispatchQueue+AsyncWait.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

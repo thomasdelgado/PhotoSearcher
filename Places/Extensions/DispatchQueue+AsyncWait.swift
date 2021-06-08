@@ -1,5 +1,5 @@
 //
-//    PhotosView.swift
+//    DispatchQueue+asyncWait.swift
 //    Places
 //    Created by Thomas Delgado on 08/06/21
 //
@@ -26,49 +26,15 @@
 //    SOFTWARE.
         
 
-import SwiftUI
+import Foundation
 
-struct PhotosView: View {
-    @StateObject var store = PhotoStore()
-
-    var body: some View {
-        NavigationView {
-            if store.isLoading {
-                ProgressView()
-            } else {
-                PhotosListView(photos: store.photos)
+extension DispatchQueue {
+    func wait() async {
+        typealias Continuation = CheckedContinuation<Void, Never>
+        return await withCheckedContinuation { (continuation: Continuation) in
+            self.asyncAfter(deadline: .now() + 1) {
+                continuation.resume()
             }
         }
-        .refreshable {
-            await store.update()
-        }
-        .task {
-            await store.load()
-        }
-    }
-}
-
-struct PhotosListView: View {
-    var photos: [Photo]
-
-    var body: some View {
-        List {
-            ForEach(photos) { photo in
-                PhotoRowView(photo: photo)
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(EdgeInsets(top: 0.5,
-                                              leading: .zero,
-                                              bottom: 0.5,
-                                              trailing: .zero))
-            }
-        }
-        .listStyle(.plain)
-        .navigationTitle("Places")
-    }
-}
-
-struct PhotosView_Previews: PreviewProvider {
-    static var previews: some View {
-        PhotosView()
     }
 }

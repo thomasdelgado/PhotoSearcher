@@ -31,16 +31,27 @@ import Foundation
 class PhotoStore: ObservableObject {
     @Published
     var photos: [Photo] = []
+    @Published
+    var isLoading: Bool = true
     let service: PhotoService
 
     init(service: PhotoService = PhotoService()) {
         self.service = service
     }
 
-    func updatePhotos() async {
+    func load() async {
         do {
             photos = try await service.photos()
-            print(photos)
+            isLoading = false
+        } catch {
+            print(error)
+        }
+    }
+
+    func update() async {
+        do {
+            await DispatchQueue.main.wait()
+            photos = try await service.photos()
         } catch {
             print(error)
         }

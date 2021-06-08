@@ -27,3 +27,73 @@
         
 
 import Foundation
+
+public struct Request {
+    let url: URL
+    let method: HttpMethod
+    var headers: [String: String] = [:]
+
+    public init(url: String, method: HttpMethod, headers: [String: String] = [:]) throws {
+        guard let url = URL(string: url) else { throw NetworkError.invalidURL }
+        self.url = url
+        self.method = method
+        self.headers = headers
+    }
+}
+
+public extension Request {
+    var urlRequest: URLRequest {
+        var request = URLRequest(url: url)
+
+        switch method {
+        case .post(let parameters), .put(let parameters):
+            request.httpBody = encode(parameters)
+        case .get(let parameters):
+            var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            components?.queryItems = parameters.map { key, value in
+                URLQueryItem(name: key, value: value as? String)
+            }
+            guard let url = components?.url else {
+                preconditionFailure("Couldn't create a url from components...")
+            }
+            request = URLRequest(url: url)
+        default:
+            break
+        }
+
+        request.allHTTPHeaderFields = headers
+        request.httpMethod = method.name
+        return request
+    }
+
+    private func encode(_ parameters: Parameters?) -> Data? {
+        if let parameters = parameters {
+            do {
+                return try JSONSerialization.data(withJSONObject: parameters, options: [])
+            } catch let error {
+                debugPrint(error)
+            }
+        }
+        return nil
+    }
+}
+
+public typealias Parameters = [String: Any]
+
+public enum HttpMethod {
+    case get(Parameters)
+    case put(Parameters?)
+    case post(Parameters?)
+    case delete
+    case head
+
+    var name: String {
+        switch self {
+        case .get: return "GET"
+        case .put: return "PUT"
+        case .post: return "POST"
+        case .delete: return "DELETE"
+        case .head: return "HEAD"
+        }
+    }
+}

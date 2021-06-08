@@ -27,3 +27,17 @@
         
 
 import Foundation
+
+extension Photo {
+    static var mock: Photo {
+        let user = User(id: "anId",
+                        name: "Charles Deluvio",
+                        username: "charlesdeluvio")
+        let urls = Urls()
+        urls.regular = "https://images.unsplash.com/photo-1585867701670-d0209b593584?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyNDE2OX0"
+        urls.small = "https://images.unsplash.com/photo-1585867701670-d0209b593584?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjEyNDE2OX0"
+        urls.thumb = "https://images.unsplash.com/photo-1585867701670-d0209b593584?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjEyNDE2OX0"
+
+        return Photo(id: "anId", likes: 99, urls: urls, description: "", user: user)
+    }
+}

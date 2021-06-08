@@ -33,9 +33,18 @@ struct PhotosView: View {
 
     var body: some View {
         NavigationView {
-            List(store.photos) { photo in
-                Text(photo.photoURL?.absoluteString ?? "")
+            List {
+                ForEach(store.photos) { photo in
+                    PhotoRowView(photo: photo)
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets(top: 0.5,
+                                                  leading: .zero,
+                                                  bottom: 0.5,
+                                                  trailing: .zero))
+                }
             }
+            .listStyle(.plain)
+            .navigationTitle("Places")            
         }
         .refreshable {
             await store.updatePhotos()

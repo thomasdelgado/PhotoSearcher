@@ -29,6 +29,7 @@
 import Foundation
 
 class PhotoStore: ObservableObject {
+    @Published
     var photos: [Photo] = []
     let service: PhotoService
 
@@ -39,6 +40,7 @@ class PhotoStore: ObservableObject {
     func updatePhotos() async {
         do {
             photos = try await service.photos()
+            print(photos)
         } catch {
             print(error)
         }

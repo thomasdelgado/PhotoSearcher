@@ -19,6 +19,8 @@
 		A37A09DF2670253B004047B7 /* Photo+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A09DE2670253B004047B7 /* Photo+Mock.swift */; };
 		A37A09E226703761004047B7 /* DispatchQueue+AsyncWait.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A09E126703761004047B7 /* DispatchQueue+AsyncWait.swift */; };
 		A37A09E5267045D2004047B7 /* PhotoSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A09E4267045D2004047B7 /* PhotoSearchResult.swift */; };
+		A37A09E826705D6E004047B7 /* EnvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37A09E726705D6E004047B7 /* EnvManager.swift */; };
+		A37A09EB26705E70004047B7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A37A09EA26705E70004047B7 /* Info.plist */; };
 		A3D22A08266FEEC5002DF1CB /* PlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D22A07266FEEC5002DF1CB /* PlacesApp.swift */; };
 		A3D22A0C266FEEC6002DF1CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D22A0B266FEEC6002DF1CB /* Assets.xcassets */; };
 		A3D22A0F266FEEC6002DF1CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D22A0E266FEEC6002DF1CB /* Preview Assets.xcassets */; };
@@ -37,6 +39,9 @@
 		A37A09DE2670253B004047B7 /* Photo+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Mock.swift"; sourceTree = "<group>"; };
 		A37A09E126703761004047B7 /* DispatchQueue+AsyncWait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+AsyncWait.swift"; sourceTree = "<group>"; };
 		A37A09E4267045D2004047B7 /* PhotoSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchResult.swift; sourceTree = "<group>"; };
+		A37A09E726705D6E004047B7 /* EnvManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvManager.swift; sourceTree = "<group>"; };
+		A37A09E926705DF4004047B7 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		A37A09EA26705E70004047B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3D22A04266FEEC5002DF1CB /* PhotoSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D22A07266FEEC5002DF1CB /* PlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesApp.swift; sourceTree = "<group>"; };
 		A3D22A0B266FEEC6002DF1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +112,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A37A09E626705D5E004047B7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A37A09E726705D6E004047B7 /* EnvManager.swift */,
+				A37A09E926705DF4004047B7 /* Config.xcconfig */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		A3D229FB266FEEC5002DF1CB = {
 			isa = PBXGroup;
 			children = (
@@ -127,12 +141,14 @@
 			isa = PBXGroup;
 			children = (
 				A37A09E026703747004047B7 /* Extensions */,
+				A37A09E626705D5E004047B7 /* Classes */,
 				A3148E32267019310059BAF6 /* Network */,
 				A364459D266FFB2F00AE70D2 /* Service */,
 				A3080A9C26700C840066A971 /* Model */,
 				A364459E266FFB3600AE70D2 /* Store */,
 				A364459F266FFB3B00AE70D2 /* View */,
 				A3D22A07266FEEC5002DF1CB /* PlacesApp.swift */,
+				A37A09EA26705E70004047B7 /* Info.plist */,
 				A3D22A0B266FEEC6002DF1CB /* Assets.xcassets */,
 				A3D22A0D266FEEC6002DF1CB /* Preview Content */,
 			);
@@ -208,6 +224,7 @@
 			files = (
 				A3D22A0F266FEEC6002DF1CB /* Preview Assets.xcassets in Resources */,
 				A3D22A0C266FEEC6002DF1CB /* Assets.xcassets in Resources */,
+				A37A09EB26705E70004047B7 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +238,7 @@
 				A3080AA226700E270066A971 /* PhotoService.swift in Sources */,
 				A3148E36267019B70059BAF6 /* NetworkError.swift in Sources */,
 				A37A09DF2670253B004047B7 /* Photo+Mock.swift in Sources */,
+				A37A09E826705D6E004047B7 /* EnvManager.swift in Sources */,
 				A3148E3826701C590059BAF6 /* PhotoStore.swift in Sources */,
 				A3148E34267019460059BAF6 /* Request.swift in Sources */,
 				A3080A9E26700C9F0066A971 /* Photo.swift in Sources */,
@@ -239,6 +257,7 @@
 /* Begin XCBuildConfiguration section */
 		A3D22A10266FEEC6002DF1CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A37A09E926705DF4004047B7 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -300,6 +319,7 @@
 		};
 		A3D22A11266FEEC6002DF1CB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A37A09E926705DF4004047B7 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

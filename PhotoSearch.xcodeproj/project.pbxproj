@@ -35,7 +35,8 @@
 		A37A09DC26702327004047B7 /* PhotoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRowView.swift; sourceTree = "<group>"; };
 		A37A09DE2670253B004047B7 /* Photo+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+Mock.swift"; sourceTree = "<group>"; };
 		A37A09E126703761004047B7 /* DispatchQueue+AsyncWait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+AsyncWait.swift"; sourceTree = "<group>"; };
-		A3D22A04266FEEC5002DF1CB /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A37A09E326703C14004047B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A3D22A04266FEEC5002DF1CB /* PhotoSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D22A07266FEEC5002DF1CB /* PlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesApp.swift; sourceTree = "<group>"; };
 		A3D22A0B266FEEC6002DF1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3D22A0E266FEEC6002DF1CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -107,7 +108,7 @@
 		A3D229FB266FEEC5002DF1CB = {
 			isa = PBXGroup;
 			children = (
-				A3D22A06266FEEC5002DF1CB /* Places */,
+				A3D22A06266FEEC5002DF1CB /* PhotoSearch */,
 				A3D22A05266FEEC5002DF1CB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -115,14 +116,15 @@
 		A3D22A05266FEEC5002DF1CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A3D22A04266FEEC5002DF1CB /* Places.app */,
+				A3D22A04266FEEC5002DF1CB /* PhotoSearch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A3D22A06266FEEC5002DF1CB /* Places */ = {
+		A3D22A06266FEEC5002DF1CB /* PhotoSearch */ = {
 			isa = PBXGroup;
 			children = (
+				A37A09E326703C14004047B7 /* Info.plist */,
 				A37A09E026703747004047B7 /* Extensions */,
 				A3148E32267019310059BAF6 /* Network */,
 				A364459D266FFB2F00AE70D2 /* Service */,
@@ -133,7 +135,7 @@
 				A3D22A0B266FEEC6002DF1CB /* Assets.xcassets */,
 				A3D22A0D266FEEC6002DF1CB /* Preview Content */,
 			);
-			path = Places;
+			path = PhotoSearch;
 			sourceTree = "<group>";
 		};
 		A3D22A0D266FEEC6002DF1CB /* Preview Content */ = {
@@ -148,9 +150,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A3D22A03266FEEC5002DF1CB /* Places */ = {
+		A3D22A03266FEEC5002DF1CB /* PhotoSearch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A3D22A12266FEEC6002DF1CB /* Build configuration list for PBXNativeTarget "Places" */;
+			buildConfigurationList = A3D22A12266FEEC6002DF1CB /* Build configuration list for PBXNativeTarget "PhotoSearch" */;
 			buildPhases = (
 				A3D22A00266FEEC5002DF1CB /* Sources */,
 				A3D22A01266FEEC5002DF1CB /* Frameworks */,
@@ -160,9 +162,9 @@
 			);
 			dependencies = (
 			);
-			name = Places;
+			name = PhotoSearch;
 			productName = Places;
-			productReference = A3D22A04266FEEC5002DF1CB /* Places.app */;
+			productReference = A3D22A04266FEEC5002DF1CB /* PhotoSearch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -180,7 +182,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A3D229FF266FEEC5002DF1CB /* Build configuration list for PBXProject "Places" */;
+			buildConfigurationList = A3D229FF266FEEC5002DF1CB /* Build configuration list for PBXProject "PhotoSearch" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -193,7 +195,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A3D22A03266FEEC5002DF1CB /* Places */,
+				A3D22A03266FEEC5002DF1CB /* PhotoSearch */,
 			);
 		};
 /* End PBXProject section */
@@ -356,10 +358,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Places/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PhotoSearch/Preview Content\"";
 				DEVELOPMENT_TEAM = B7VMMPC6DV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhotoSearch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PhotoSearch;
+				INFOPLIST_KEY_CFBundleExecutable = PhotoSearch;
+				INFOPLIST_KEY_CFBundleName = PhotoSearch;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -371,7 +378,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.delgado.Places;
+				PRODUCT_BUNDLE_IDENTIFIER = com.delgado.Photos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -386,10 +393,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Places/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PhotoSearch/Preview Content\"";
 				DEVELOPMENT_TEAM = B7VMMPC6DV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhotoSearch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PhotoSearch;
+				INFOPLIST_KEY_CFBundleExecutable = PhotoSearch;
+				INFOPLIST_KEY_CFBundleName = PhotoSearch;
+				INFOPLIST_KEY_CFBundleVersion = 1;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -401,7 +413,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.delgado.Places;
+				PRODUCT_BUNDLE_IDENTIFIER = com.delgado.Photos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -412,7 +424,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A3D229FF266FEEC5002DF1CB /* Build configuration list for PBXProject "Places" */ = {
+		A3D229FF266FEEC5002DF1CB /* Build configuration list for PBXProject "PhotoSearch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A3D22A10266FEEC6002DF1CB /* Debug */,
@@ -421,7 +433,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3D22A12266FEEC6002DF1CB /* Build configuration list for PBXNativeTarget "Places" */ = {
+		A3D22A12266FEEC6002DF1CB /* Build configuration list for PBXNativeTarget "PhotoSearch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A3D22A13266FEEC6002DF1CB /* Debug */,

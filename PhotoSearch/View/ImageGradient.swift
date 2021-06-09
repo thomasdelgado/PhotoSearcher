@@ -35,7 +35,8 @@ struct ImageGradient: View {
                                           .clear,
                                           .clear,
                                           .clear]),
-                       startPoint: .bottom, endPoint: .top)
+                       startPoint: .bottom, endPoint: .top
+        )
     }
 }
 

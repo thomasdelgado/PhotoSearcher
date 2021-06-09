@@ -1,6 +1,6 @@
 //
-//    PhotoStore.swift
-//    Places
+//    PhotoSearchResult.swift
+//    PhotoSearch
 //    Created by Thomas Delgado on 08/06/21
 //
 //    MIT License
@@ -28,43 +28,7 @@
 
 import Foundation
 
-class PhotoStore: ObservableObject {
-    @Published
-    var photos: [Photo] = []
-    @Published
-    var isLoading: Bool = true
-    let service: PhotoService
-    let suggestions = ["Portrait", "Fashion", "Architecture", "Minimal", "Nature", "Sports"]
-
-    init(service: PhotoService = PhotoService()) {
-        self.service = service
-    }
-
-    func load() async {
-        do {
-            photos = try await service.searchPhotos()
-            isLoading = false
-        } catch {
-            print(error)
-        }
-    }
-
-    func update(with query: String) async {
-        do {
-            await DispatchQueue.main.wait()
-            photos = try await service.searchPhotos(query: query)
-        } catch {
-            print(error)
-        }
-    }
-
-    func search(with query: String) async {
-        do {
-            isLoading = true            
-            photos = try await service.searchPhotos(query: query)
-            isLoading = false
-        } catch {
-            print(error)
-        }
-    }
+struct PhotoSearchResult: Decodable {
+    var total: Int
+    var results: [Photo]
 }

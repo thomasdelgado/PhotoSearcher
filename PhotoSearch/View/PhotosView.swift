@@ -24,23 +24,35 @@
 //    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //    SOFTWARE.
-        
+
 
 import SwiftUI
 
 struct PhotosView: View {
     @StateObject var store = PhotoStore()
+    @State var text = ""
+
+    @Environment(\.isSearching)
+    private var isSearching: Bool
 
     var body: some View {
         NavigationView {
-            if store.isLoading {
-                ProgressView()
-            } else {
-                PhotosListView(photos: store.photos)
-            }
+            PhotosListView(store: store)
+                .navigationTitle("Photos")
+                .searchable(text: $text) {
+                    ForEach(store.suggestions, id: \.self) { suggestion in
+                        Text(suggestion)
+                            .searchCompletion(suggestion)
+                    }
+                }
+                .onSubmit(of: .search) {
+                    async {
+                        await store.search(with: text)
+                    }
+                }
         }
         .refreshable {
-            await store.update()
+            await store.update(with: text)
         }
         .task {
             await store.load()
@@ -49,21 +61,24 @@ struct PhotosView: View {
 }
 
 struct PhotosListView: View {
-    var photos: [Photo]
+    @ObservedObject var store: PhotoStore
 
     var body: some View {
-        List {
-            ForEach(photos) { photo in
-                PhotoRowView(photo: photo)
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(EdgeInsets(top: 0.5,
-                                              leading: .zero,
-                                              bottom: 0.5,
-                                              trailing: .zero))
-            }
+        if store.isLoading {
+            ProgressView()
+        } else {
+            List {
+                ForEach(store.photos) { photo in
+                    PhotoRowView(photo: photo)
+                        .listRowSeparator(.hidden)
+                        .listRowInsets(EdgeInsets(top: 0.5,
+                                                  leading: .zero,
+                                                  bottom: 0.5,
+                                                  trailing: .zero))
+                }
+            }.listStyle(.plain)
         }
-        .listStyle(.plain)
-        .navigationTitle("Places")
+
     }
 }
 

@@ -6,3 +6,4 @@ Currently showcases the following:
 - Search Bar
 - Pull to Refresh
 - async/await
+- AsyncImage
